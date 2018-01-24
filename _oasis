@@ -1,0 +1,10 @@
+OASISFormat: 0.4
+Name:        ocaml-nel
+Version:     0.0.1
+Synopsis:    A NonEmptyList for OCaml
+Authors:     Kaden Thomas
+License:     MIT
+Library "ocaml-nel"
+  Path:       ./src
+  BuildTools: ocamlbuild
+  Modules:    Nel

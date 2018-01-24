@@ -7,6 +7,12 @@
 *.cmx
 *.cmxs
 *.cmxa
+*.mldylib
+*.mllib
+
+# vim
+*.swp
+*.swo
 
 # ocamlbuild working directory
 _build/
