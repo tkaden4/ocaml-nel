@@ -6,5 +6,8 @@ Authors:     Kaden Thomas
 License:     MIT
 Library "ocaml-nel"
   Path:       ./src
+  BuildDepends:
+    threads,
+    core
   BuildTools: ocamlbuild
   Modules:    Nel

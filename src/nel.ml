@@ -1,5 +1,8 @@
 (* author: Kaden Thomas *)
 
+open Core
+open Std
+
 (* the Nel datatype
  * always has a first element,
  * then a regular list afterwards *)
@@ -18,7 +21,6 @@ let from_list ~init:init = function
     | [] -> create init []
     | x :: xs -> create x xs
 
-(* for errors converting to Nel *)
 exception Convert_to_nel
 
 (* convert a list to a Nel,
@@ -30,3 +32,16 @@ let from_list_exn = function
 
 (* convert a Nel to a list *)
 let to_list (hd, tl) = hd :: tl
+
+
+(* Core.List equivalents *)
+
+let map (hd, tl) ~f:f = create (f hd) (List.map ~f:f tl)
+
+let fold_left (hd, tl) ~init:init ~f:f =
+    let first = f init hd in
+    List.fold_left ~init:first ~f:f tl
+
+let iter (hd, tl) ~f:f =
+    f hd ;
+    List.iter ~f:f tl
