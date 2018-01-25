@@ -8,10 +8,8 @@ open Std
  * then a regular list afterwards *)
 type 'a t = 'a * 'a list
 
-(* create a Nel directly *)
-let create (hd : 'a) (tl : 'a list) = (hd, tl)
+let create hd tl = (hd, tl)
 
-(* head and tail accessors *)
 let head (hd, _) = hd
 let tail (_, tl) = tl
 
@@ -30,11 +28,7 @@ let from_list_exn = function
     | [] -> raise Convert_to_nel
     | x :: xs -> create x xs
 
-(* convert a Nel to a list *)
 let to_list (hd, tl) = hd :: tl
-
-
-(* Core.List equivalents *)
 
 let map (hd, tl) ~f:f = create (f hd) (List.map ~f:f tl)
 
@@ -43,5 +37,4 @@ let fold_left (hd, tl) ~init:init ~f:f =
     List.fold_left ~init:first ~f:f tl
 
 let iter (hd, tl) ~f:f =
-    f hd ;
-    List.iter ~f:f tl
+    f hd ; List.iter ~f:f tl

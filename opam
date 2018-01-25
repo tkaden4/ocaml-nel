@@ -1,0 +1,15 @@
+opam-version: "1.2"
+name: "ocaml-nel"
+version: "0.0.1"
+maintainer: "Kaden thomas.kaden4@outlook.com"
+author: "Kaden thomas.kaden4@outlook.com"
+homepage: "tkaden4.github.io/projects/nel"
+bug-reports: ""
+license: "MIT License"
+dev-repo: "https://github.com/tkaden4/ocaml-nel"
+build: [
+    [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "ocaml-nel"]
+depends: "ocamlfind"
